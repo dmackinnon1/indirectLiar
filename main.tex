@@ -1,0 +1,370 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\tikzset{node distance=2cm, auto}
+
+\title{lion and unicorn}
+\author{Dan MacKinnon}
+\date{September 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{equation*}
+\begin{split}
+Days =  \{ &\textrm{Monday, Tuesday, Wednesday,} \\ 
+&\textrm{Thursday, Friday, Saturday, Sunday} \}
+\end{split}
+\end{equation*}
+
+$\linebreak[2]$ 
+
+\noindent
+$L = \{ \textrm{Monday, Tuesday, Wednesday}\}$
+
+$\linebreak[2]$
+
+\noindent
+$U = \{ \textrm{Thursday, Friday, Saturday}\} $
+
+$\linebreak[2]$
+
+\noindent
+$\overline{L} = \{ \textrm{Thursday, Friday, Saturday, Sunday}\}$
+
+
+$\linebreak[2]$
+
+\noindent
+$\overline{U} = \{ \textrm{Sunday, Monday, Tuesday, Wednesday}\}$
+
+
+
+$\linebreak[2]$
+
+\noindent
+$L 	\cap U  = \emptyset$
+
+
+$\linebreak[2]$
+
+\noindent
+$\overline{L} 	\cap \overline{U}  = \{ \textrm{Sunday} \}$
+
+
+$\linebreak[2]$
+
+\noindent
+$S_L = t(L) = \{ \textrm{Tuesday, Wednesday, Thursday}\}$
+
+$\linebreak[2]$
+
+\noindent
+$t(L) =  \{ \textrm{Tuesday, Wednesday, Thursday}\} $
+
+$\linebreak[2]$
+
+\noindent
+$S_L \cap \overline{L} =  \{ \textrm{Thursday}\}$
+
+$\linebreak[2]$
+
+\noindent
+$t(L)^C = \{ \textrm{Monday, Thursday, Friday, Saturday, Sunday}\}$
+
+$\linebreak[2]$
+
+\noindent
+$\overline{S_L} \cap L = \{ \textrm{Monday} \}$
+
+$\linebreak[2]$
+
+\noindent
+
+\begin{equation*}
+\begin{split}
+D_L &= ( S_L \cap \overline{L} ) \cup ( \overline{S_L} \cap L ) \\ 
+&= \{ \textrm{Monday, Thursday} \}  
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+D_U &= ( S_U \cap \overline{U} ) \cup ( \overline{S_U} \cap U ) \\ 
+&= \{ \textrm{Sunday, Thursday} \}  
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+D &= D_L \cap D_U \\
+&= [ (S_L \cap \overline{L} ) \cup ( \overline{S_L} \cap L)] \cap [ (S_U \cap \overline{U} ) \cup ( \overline{S_U} \cap U)]  \\ 
+&= \{ \textrm{Thursday} \}  
+\end{split}
+\end{equation*} 
+
+\section{Paradoxical Puzzles of Raymond Smullyan}
+
+\noindent
+Many of the much-enjoyed puzzles of Raymond Smullyan  are built around a set of ideas that are linked to the Liar's Paradox. Each variety of puzzle presents an amusing scenario where the puzzle solver must evade the paradox and deduce the truth behind a set of statements. 
+
+
+$\linebreak[2]$
+
+\noindent \textbf{Knights and Knaves} There are two types of people on a strange island: knights who always tell the truth and knaves who always lie. Based on their statements, can we tell who is who? 
+
+$\linebreak[2]$
+
+\noindent
+\textbf{Isle of Dreams} A mysterious island where dreams are as vivid as waking life: Nocturnal residents are those who think true thoughts when sleeping but false ones when awake, diurnal residents think true thoughts when awake but false ones when sleeping. Based on their thoughts of two residents of the island, can we tell which type of islander they are? 
+
+$\linebreak[2]$
+
+\noindent
+\textbf{The Lion and the Unicorn} The Lion lies on some days of the week, and the Unicorn lies on others. Travelling in the Forest of Forgetfulness, Alice has to figure out what day it is based on their unreliable testimony, but how?
+
+$\linebreak[2]$
+
+\noindent
+\textbf{Portia's Caskets} Portia has set a test for her suitors: deduce which of three caskets holds her portrait in order to win her hand. Based on the inscriptions on the caskets, can we locate Portia's portrait?
+
+$\linebreak[2]$
+
+\noindent
+\textbf{The Identical Twins} Alice can't tell Tweedledum and Tweedledee apart - worse still, they lie when holding one type of playing card and tell the truth when holding another. Can she solve their riddles about who is who?
+
+$\linebreak[2]$
+
+\noindent
+\textbf{The Lady or the Tiger} A prisoner must choose one of two doors - they might lead to a ferocious tiger and death, or a friendly lady and freedom, but the signs on the doors are sometimes true and sometimes false. Is there a logical way to escape?
+
+\subsection{The Liar's Paradox}
+\noindent
+The Liar's Paradox is most succinctly achieved when presented as a single statement, such as:
+
+$\linebreak[2]$
+
+\noindent
+This statement is false.
+
+$\linebreak[2]$
+
+\noindent
+Is the statement true? If so, then it is false. Is the statement false? If so, then it is true. Similarly, if someone states
+
+$\linebreak[2]$
+
+\noindent
+I am lying.
+
+$\linebreak[2]$
+
+\noindent
+Is the person lying? Well, then they are telling the truth. Are they telling the truth? Then they are lying.
+
+$\linebreak[2]$
+
+\noindent
+The paradox generating power of this statement arises from its self-referential nature. To move from a paradox to a puzzle, we need a statement that has a layer of indirection in its self-reference - something to stand between the statement and its truth or falsehood. An \emph{indirect liar} can give us room to create a puzzle, where a direct liar would trigger the paradox. 
+
+\subsubsection{A Simple Indirect Liar Puzzle - The Annoying Uncle}
+
+\noindent
+Here is a simple example of how side-step the Liar's Paradox and create a simple puzzle. Like me, perhaps you had an annoying uncle who teased you when you were young, perhaps by inviting you to play a game of ``52 pickup," or by forcing you to guess which hand he has concealed a coin that he just took from you. Imagine then, this scenario:
+
+$\linebreak[2]$
+
+\noindent
+You have an annoying uncle who is concealing one of your coins, either a dime or a quarter. If you can guess which hand the coin is concealed in, you can have your coin back. You've noticed that your uncle always lies when he is holding a quarter, and tells the truth when he is holding a dime. He says:
+``I have a quarter in my right hand."
+Which hand has the coin, and what coin is it?
+
+$\linebreak[2]$
+
+\noindent
+In this case, the uncle is not quite saying ``I am lying" but he is indirectly giving away that he is lying, because he is claiming that we are in a state of affairs where he always lies. Are we in a situation where if he is telling the truth then he is lying, and if he is lying then he is telling the truth? Almost, but not quite.
+
+Could he have a dime in his hand? No, he tells the truth when he has a dime in his hand, and he is saying that he has a quarter - which would be a lie. So uncle has a quarter and he is lying. So, although there is a part of a truth in his statement (he must be holding a quarter), the whole statement cannot be true, which means the quarter must be in his left hand.
+
+$\linebreak[2]$
+
+\noindent
+The uncle could not have simply said ``I am holding a quarter," as this would have triggered the Liar's Paradox - it is the same thing as saying ``I am lying." So in order to sidestep the paradox and have a solvable puzzle, we needed the additional structure of two types of coins in two possible locations. 
+The possible solutions for this puzzle are: dime-left, dime-right, quarter-left, and quarter-right.
+We need the statement by the uncle to be true or false based on which of the possible solutions is actually the solution. If the solution is quarter-left or quarter-right, the statement by the uncle is false, but if the solution is dime-left or dime-right, then the statement by the uncle is true.
+
+$\linebreak[2]$
+
+\noindent
+So, the puzzle could be described as: 
+$$ \boldsymbol{P} = (G, S, T) $$
+Where $G$ is a set of possible states of affairs, $S \subseteq G$ is the subset of $G$ that the uncle's statement describes, and  $T \subseteq G$ is the subset of $G$ for which the uncle is truthful.
+\begin{equation*}
+\begin{split}
+G &= \{\text{dime-left, dime-right, quarter-left, quarter-right}\} \\
+S &= \{\text{quarter-right}\} \\
+T &= \{\text{dime-left, dime-right}\}\\
+\end{split}
+\end{equation*}
+
+$\linebreak[2]$
+
+\noindent
+With this way of describing the problem, we can find the possible solutions described by the statement S, when the uncle is telling the truth:
+
+$$S \cap T = \emptyset$$ 
+
+\noindent
+We can also find possible solutions described by S, when the uncle is lying:
+
+$$(G-S) \cap (G-T) = \{\text{quarter-left}\}$$
+
+\noindent
+Taken together, these provide all possible solutions - in this case the unique solution \emph{quarter-left}.
+\noindent
+
+\subsubsection{A General Framework for Indirect Liar Puzzles}
+
+We can extend the framework used to describe the Annoying Uncle puzzle to cover all of the Smullyan puzzle types mentioned above. In general, an \emph{indirect liar puzzle} is a puzzle $\boldsymbol{P}$ where 
+$ \boldsymbol{P} = (G, S_i, T_i).$ As before, we have a set of goals or ``states of affairs"$G$, but now for some $n$ we have a family of subsets $S_i \subseteq G$ that describe a list of statements, and a family of subsets $T_i \subseteq G$ where each $T_i$ states which elements of $G$ make $S_i$ true. 
+
+$\linebreak[2]$
+
+\noindent
+The solution for a problem described this way can be calculated by first, for each pair $S_i$, $T_i$ we find where the statement agrees with the values for which the statement can be true, forming a new set $E_i$, or where the denial of the statement agrees with the values of where the statement is false:
+
+$$E_i = (S_i \cap T_i) \cup [(G-S_i)\cap (G-T_i)]$$
+
+\noindent
+Then finding the intersection of all $E_i$, we obtain the elements of $G$ that satisfy all $S_i$.
+
+$$ E = \bigcap E_i$$
+
+\noindent
+If the set $E$ has more than one element, then the puzzle has multiple solutions and is not well defined, if is empty, then there are no solutions. Only if $E$ is a singleton would the puzzle have a unique solution and be well formed.
+
+$\linebreak[2]$
+
+
+\noindent \textbf{Knights and Knaves} Consider two islanders, A and B. A says ``B is my type" and B says ``A is lying." 
+
+
+$\linebreak[2]$
+
+\noindent
+Following the general indirect liar model proposed above, we'll model this puzzle as
+
+$$ P = (G, S_A, S_B, T_A, T_B)$$
+
+Where the set $G$ is all all possible sets of knights (from this set of two islanders A and B). 
+\begin{equation*}
+\begin{split}
+&G = \{\emptyset, \{A\}, \{B\}, \{A,B\} \} \\
+&S_A = \{\emptyset, \{A,B\} \} \\
+&S_B = \{\emptyset, \{B\}\} \\
+&T_A = \{\{A\}, \{A,B\} \} \\
+&T_B = \{\{B\}, \{A,B\} \} \\
+\end{split}
+\end{equation*}
+
+$\linebreak[2]$
+
+\noindent
+The statement of the first knight, $S_A$ is saying that A is the same type as B, hence either there are no knights or they are both knights. The statement of the second knight, $S_B$ is saying that A is lying, so there are either no knights or only B is a knight. A's statement is only true if A is a knight, so $T_A$ lists those scenarios where A is a knight, similarly $T_B$ lists those scenarios where B is a knight.
+
+\noindent
+Our calculations require these complementary sets as well:
+
+\begin{equation*}
+\begin{split}
+&G - S_A = \{\{A\}, \{B\} \} \\
+&G - S_B = \{\{A\}, \{A,B\} \} \\
+&G - T_A = \{\emptyset, \{B\} \} \\
+&G- T_B = \{\emptyset, \{A\} \} \\
+\end{split}
+\end{equation*}
+
+\noindent
+With these, we can move ahead with the calculation to find the solution.
+
+\begin{equation*}
+\begin{split}
+&E_A = (S_A \cap T_A) \cup [(G-S_A)\cap(G-T_A)] \\
+&E_B = (S_B \cap T_B) \cup [(G-S_B)\cap(G-T_B)] \\
+&E = E_A \cap E_B\\
+&E_A = \{\{A,B\}, \{B\}\} \\
+&E_B = \{\{B\}, \{A\}\} \\
+&E = \{\{B\}\}
+\end{split}
+\end{equation*}
+
+\noindent
+In this case, the solution set $E$ is a singleton, so it describes a unique solution to the puzzle: B is the only knight, so A is a knave.
+
+$\linebreak[2]$
+
+
+\noindent \textbf{The Lion and the Unicorn} The Lion lies on Mondays, Tuesdays, and Wednesdays, and tells the truth on the other days of the week. The Unicorn, on the other hand, lies on Thursdays, Fridays, and Saturdays, but tells the truth on other days of the week.
+
+\noindent
+One day, Alice met the Lion and the Unicorn resting under a tree. They made the following statements: 
+
+\noindent
+Lion: Yesterday was one of my lying days. 
+
+\noindent
+Unicorn: Yesterday was one of my lying days too.
+
+\noindent
+Alice must know: what day is it today?
+
+$\linebreak[2]$
+
+\noindenthttps://books.google.ca/books?id=38ZQx7u1Wa0C
+Using the framework above, we determine that 
+
+\begin{equation*}
+\begin{split} 
+&G = \{\text{Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday} \} \\
+&S_L = \{\text{Tuesday, Wednesday, Thursday} \} \\
+&G-S_L = \{\text{Monday, Friday, Saturday, Sunday} \} \\
+&S_U = \{\text{Friday, Saturday, Sunday}\} \\
+&G-S_U = \{\text{Monday, Tuesday, Wednesday, Thursday} \} \\
+&T_L = \{\text{Thursday, Friday, Saturday, Sunday} \} \\
+&T_U = \{ \text{Sunday, Monday, Tuesday, Wednesday} \} \\
+\end{split}
+\end{equation*}
+
+\noindent
+With these, we can move ahead with the calculation to find the solution.
+\begin{equation*}
+\begin{split} 
+&E_U = (S_U \cap T_U) \cup [(G-S_U)\cap(G-T_U)] \\
+&E_L = (S_L \cap T_L) \cup [(G-S_L)\cap(G-T_L)] \\
+&E = E_U \cap E_L\\
+&E_L =  \{Thursday, Monday \}\\
+&E_U =  \{Friday, Saturday \}\\
+&E = \{ Thursday\}\\
+\end{split}
+\end{equation*}
+
+\noindent \textbf{Identical Twins}
+Alice stumbled on Tweedledum and Tweedledee and she could not tell them apart. "Let's play a logic game," said the first brother. Holding up a Jack of Diamonds, the first brother continued: "We will go back inside and each pick up a playing card like this and keep it hidden from you. When we hold a red card, we will tell the truth, when we hold a black card we will lie." 
+The two brothers came out of their house.
+
+\noindent
+The first brother says: Either my brother's name is Tweedledee, or he has a red card.
+
+\noindent
+The second brother says: My name is Tweedledum, and I have a black card.
+
+
+
+
+
+\end{document}
